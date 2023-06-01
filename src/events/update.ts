@@ -28,7 +28,6 @@ export const onUpdate = async (message: string) => {
     io.emit("qn-update", [...qnSet]);
 
     // await kv.set(["qn"], [...qnSet]);
-
     await client.queryArray`
     UPDATE "Number" SET VALUE = ${[...qnSet].join(" ")}
   `;
